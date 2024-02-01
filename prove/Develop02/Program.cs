@@ -3,16 +3,18 @@ using System.Threading.Tasks.Dataflow;
 
 //Exceeding Requirements: 
 //Added a feature to allow the user to either enter a number or the option name in the main menu
+//Made it so that prompts are not random, but go in order
 
 namespace JournalProgram {
     class Program {
         static void Main(string[] args) {
-
+            Journal Journal = new Journal();
             string choice = "";
 
+            Console.WriteLine("Welcome to the Journal Program!");
+
             while (choice != "5" && choice.ToLower() != "quit") {
-                Console.WriteLine("Welcome to your Journal");
-                Console.WriteLine("Select an option:");
+                Console.WriteLine("\nPlease select an option:");
                 Console.WriteLine("1. Write Entry");
                 Console.WriteLine("2. Display Entries");
                 Console.WriteLine("3. Save Journal");
@@ -22,16 +24,16 @@ namespace JournalProgram {
                 choice = Console.ReadLine();
 
                 if (choice == "1" || choice.ToLower() == "write entry") {
-
+                    Journal.NewEntry();
                 }
                 else if (choice == "2" || choice.ToLower() == "display entries") {
-
+                    Journal.ShowHistory();
                 }
                 else if (choice == "3" || choice.ToLower() == "save journal") {
-
+                    Journal.SaveFile();
                 }
                 else if (choice == "4" || choice.ToLower() == "load journal") {
-
+                    Journal.LoadFile();
                 }
                 else if (choice == "5" || choice.ToLower() == "quit") {
                     break;

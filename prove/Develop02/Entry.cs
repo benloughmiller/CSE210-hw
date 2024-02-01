@@ -1,5 +1,18 @@
 public class Entry {
     DateTime _currentDate = DateTime.Now;
-    int _entryText = 0;
-    int _getQuestion = 0;
+
+    private List<string> questions = new List<string>() {
+    "Who was the most interesting person I interacted with today?",
+    "What was the best part of my day?",
+    "How did I see the hand of the Lord in my life today?",
+    "What was the strongest emotion I felt today?",
+    "If I had one thing I could do over today, what would it be?",
+    };
+
+    private int _questionCount = -1;
+
+    public string GetNextPrompt() {
+        currentIndex = _questionCount + 1;
+        return questions[_questionCount];
+    }
 }
