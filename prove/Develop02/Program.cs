@@ -2,8 +2,9 @@ using System;
 using System.Threading.Tasks.Dataflow;
 
 //Exceeding Requirements: 
-//Added a feature to allow the user to either enter a number or the option name in the main menu
-//Made it so that prompts are not random, but go in order
+//Added a feature to allow the user to either enter a number or the option's name in the main menu
+//Added an option to delete a file
+//Added more prompts for the user to respond to
 
 namespace JournalProgram {
     class Program {
@@ -13,13 +14,14 @@ namespace JournalProgram {
 
             Console.WriteLine("Welcome to the Journal Program!");
 
-            while (choice != "5" && choice.ToLower() != "quit") {
+            while (choice != "6" && choice.ToLower() != "quit") {
                 Console.WriteLine("\nPlease select an option:");
                 Console.WriteLine("1. Write Entry");
                 Console.WriteLine("2. Display Entries");
                 Console.WriteLine("3. Save Journal");
                 Console.WriteLine("4. Load Journal");
-                Console.WriteLine("5. Quit");
+                Console.WriteLine("5. Delete File");
+                Console.WriteLine("6. Quit");
                 
                 choice = Console.ReadLine();
 
@@ -35,7 +37,10 @@ namespace JournalProgram {
                 else if (choice == "4" || choice.ToLower() == "load journal") {
                     MyJournal.LoadFile();
                 }
-                else if (choice == "5" || choice.ToLower() == "quit") {
+                else if (choice == "5" || choice.ToLower() == "delete file") {
+                    MyJournal.DeleteFile();
+                }
+                else if (choice == "6" || choice.ToLower() == "quit") {
                     break;
                 }
                 else {
