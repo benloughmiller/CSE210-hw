@@ -8,7 +8,7 @@ using System.Threading.Tasks.Dataflow;
 namespace JournalProgram {
     class Program {
         static void Main(string[] args) {
-            Journal Journal = new Journal();
+            Journal MyJournal = new Journal();
             string choice = "";
 
             Console.WriteLine("Welcome to the Journal Program!");
@@ -24,16 +24,16 @@ namespace JournalProgram {
                 choice = Console.ReadLine();
 
                 if (choice == "1" || choice.ToLower() == "write entry") {
-                    Journal.NewEntry();
+                    MyJournal.NewEntry();
                 }
                 else if (choice == "2" || choice.ToLower() == "display entries") {
-                    Journal.ShowHistory();
+                    MyJournal.ShowHistory();
                 }
                 else if (choice == "3" || choice.ToLower() == "save journal") {
-                    Journal.SaveFile();
+                    MyJournal.SaveFile();
                 }
                 else if (choice == "4" || choice.ToLower() == "load journal") {
-                    Journal.LoadFile();
+                    MyJournal.LoadFile();
                 }
                 else if (choice == "5" || choice.ToLower() == "quit") {
                     break;
