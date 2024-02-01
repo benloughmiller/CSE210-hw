@@ -1,5 +1,5 @@
 public class Entry {
-    DateTime _currentDate = DateTime.Now;
+    public DateTime _currentDate = DateTime.Now;
 
     private List<string> questions = new List<string>() {
     "Who was the most interesting person I interacted with today?",
@@ -11,8 +11,8 @@ public class Entry {
 
     private int _questionCount = -1;
 
-    public string GetNextPrompt() {
-        currentIndex = _questionCount + 1;
+    public string GetNextQuestion() {
+        _questionCount = _questionCount + 1;
         return questions[_questionCount];
     }
 }
