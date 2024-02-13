@@ -7,7 +7,7 @@ public class Journal {
         string _prompt = entry.GetNextQuestion();
         Console.WriteLine(_prompt);
         string _userResponse = Console.ReadLine();
-        string _date = entry.CurrentDate.ToString("MM/dd/yyyy");
+        string _date = entry._currentDate.ToString("MM/dd/yyyy");
         entry._formattedEntry = $"Date: {_date}, prompt: {_prompt}, Entry: {_userResponse}";
         _entries.Add(entry._formattedEntry);
     }

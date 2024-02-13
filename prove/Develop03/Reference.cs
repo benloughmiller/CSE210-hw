@@ -6,10 +6,12 @@ class Reference {
     public Reference() {
         verses = new List<string>() {
             //Verses 2b added
+            "Ben"
         };
 
         refs = new List<string>() {
             //References 2b added
+            "Loughmiller"
         };
     }
 
