@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 public class Entry {
-    public DateTime CurrentDate = DateTime.Now;
+    public DateTime _currentDate = DateTime.Now;
     public string _formattedEntry = "";
     private List<string> questions;
 
