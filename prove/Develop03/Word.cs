@@ -1,3 +1,4 @@
+
 class Word {
     private bool _hidden;
     private string _word;
