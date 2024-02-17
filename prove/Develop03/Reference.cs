@@ -4,25 +4,29 @@ class Reference {
     private int _chapter;
     private int _startVerse;
     private int? _endVerse;
+    //_randomNumber is left public. I could not think of a way to have the same random number be used in both the Reference and Scripture classes using the constructor itself.
+    public int _randomNumber;
     private Random _random = new Random();
 
     public Reference() {
         // List of references
         _refs = new List<string>() {
             "Proverbs 3:5-6",
-            "John 3:16"
+            "John 3:16",
+            "Alma 7:11",
+            "Esther 8:9",
+            "John 11:35"
         };
     }
 
-    public int RandomVerse() {
+    public void RandomVerse() {
         // Returns a random number between 0 and the number of references in the list. This number will be used to select the coordinating verse
-        int _randomNumber = _random.Next(_refs.Count);
-        return _randomNumber;
+        _randomNumber = _random.Next(_refs.Count);
     }
 
     public string GetReference() {
         // Gets a random verse from the list of references, fills variables, and returns the reference
-        string[] _ref = _refs[RandomVerse()].Split(' ');
+        string[] _ref = _refs[_randomNumber].Split(' ');
 
         _book = _ref[0];
         string[] _chapterVerse = _ref[1].Split(':');

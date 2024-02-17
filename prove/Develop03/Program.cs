@@ -11,7 +11,7 @@ class Program {
         Scripture scripture = new Scripture();
 
         Console.WriteLine("Welcome to the Scripture Memorization Program!");
-        Console.WriteLine("Please select a difficulty level: 1 for easy, 2 for normal, 3 for hard.");
+        Console.WriteLine("Please select a difficulty level: Type 1 for easy, 2 for normal, 3 for hard.");
         
         int _difficulty = 0;
         int _userDifficulty = int.Parse(Console.ReadLine());
@@ -45,7 +45,6 @@ class Program {
         }
         Console.Clear();
         Console.WriteLine("Exiting the program");
-        Environment.Exit(0);
-                
+        Environment.Exit(0);       
     }
 }
