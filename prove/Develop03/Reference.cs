@@ -15,7 +15,7 @@ class Reference {
     }
 
     public int RandomVerse() {
-        // Returns a random number between 0 and the number of references in the list
+        // Returns a random number between 0 and the number of references in the list. This number will be used to select the coordinating verse
         int _randomNumber = _random.Next(_refs.Count);
         return _randomNumber;
     }
