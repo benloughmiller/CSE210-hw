@@ -11,7 +11,7 @@ class Program {
             Console.WriteLine("    2. Start Reflecting Activity");
             Console.WriteLine("    3. Start Listing Activity");
             Console.WriteLine("    4. Quit");
-            Console.WriteLine("\n Select a choice from the menu: ");
+            Console.Write("\n Select a choice from the menu: ");
             _choice = Console.ReadLine();
 
             if (_choice == "1") {

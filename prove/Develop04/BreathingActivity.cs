@@ -5,6 +5,10 @@ class BreathingActivity : Activity {
     }
     public void RunBreathing() {
         ActivityStart();
+        int _duration = GetDuration();
+        SpinnyAnimation(500);
+        CountdownTimer(5);
+        ActivityEnd();
     }
     public void BreathingInOut() {
     }

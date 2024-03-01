@@ -25,6 +25,7 @@ class ReflectingActivity : Activity {
     public void RunReflecting() {
         ActivityStart();
         GetReflectingPrompt();
+        ActivityEnd();
     }
     public void GetReflectingPrompt() {
         Random _random = new Random();

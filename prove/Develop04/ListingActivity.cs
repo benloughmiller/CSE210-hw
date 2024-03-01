@@ -12,7 +12,7 @@ class ListingActivity : Activity {
     }
     public void RunListing() {
         ActivityStart();
-
+        ActivityEnd();
     }
     public void GetListPrompt() {
 
