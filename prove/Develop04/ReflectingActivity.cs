@@ -36,21 +36,21 @@ class ReflectingActivity : Activity {
         DisplayQuestions(_activityTime);
         ActivityEnd();
     }
-    public void GetReflectingPrompt() {
+    private void GetReflectingPrompt() {
         Random _random = new Random();
         int _randomPrompt = _random.Next(_reflectPrompts.Count);
         string _displayPrompt = "---- " + _reflectPrompts[_randomPrompt] + " ----";
         Console.WriteLine(_displayPrompt);
     }
 
-    public string GetQuestion() {
+    private string GetQuestion() {
         Random _random = new Random();
         int _randomQuestion = _random.Next(_questions.Count);
         string _displayQuestion = _questions[_randomQuestion];
         _questions.RemoveAt(_randomQuestion);
         return _displayQuestion;
     }
-    public void DisplayQuestions(int time) {
+    private void DisplayQuestions(int time) {
         int _remainingTime = time; 
         while (_remainingTime > 0) {
 

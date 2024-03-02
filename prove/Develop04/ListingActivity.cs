@@ -20,14 +20,14 @@ class ListingActivity : Activity {
         UserResponses(_activityTime);
         ActivityEnd();
     }
-    public void GetListPrompt() {
+    private void GetListPrompt() {
         Random _random = new Random();
         int _randomPrompt = _random.Next(_listPrompts.Count);
         string _displayPrompt = "---- " + _listPrompts[_randomPrompt] + " ----";
         Console.WriteLine(_displayPrompt);
     }
 
-    public void UserResponses(int time) {
+    private void UserResponses(int time) {
         int _remainingTime = time;
         int _responses = 0;
         DateTime _startTime = DateTime.Now;

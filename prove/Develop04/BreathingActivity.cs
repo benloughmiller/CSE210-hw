@@ -9,7 +9,7 @@ class BreathingActivity : Activity {
         BreathingInOut(_activityTime);
         ActivityEnd();
     }
-    public void BreathingInOut(int time) {
+    private void BreathingInOut(int time) {
         int _remainingTime = time;
         while (_remainingTime > 0) {
             Console.Write("Breathe in... ");
