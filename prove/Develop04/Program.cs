@@ -1,6 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
-
+//Stretch: In the Breathing Activity, if the set time is uneven or wouldn't allow a exhale prompt, it splits the remaining time to give time for both. 
 class Program {
     static void Main(string[] args) {
         string _choice = "";
