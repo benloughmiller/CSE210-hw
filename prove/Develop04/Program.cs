@@ -1,6 +1,11 @@
 using System;
 using System.Runtime.CompilerServices;
-//Stretch: In the Breathing Activity, if the set time is uneven or wouldn't allow a exhale prompt, it splits the remaining time to give time for both. 
+
+//Stretch: The Activity will not allow a user to enter non-integers as the activity duration.
+//Stretch: The Breathing Activity allocates the last portion of remaining time to accommodate an even time for inhaling and exhaling.
+//Stretch: The Reflecting Activity will not show the same questions twice in the same session.
+//Stretch: The Reflecting Activity adjusts the last waiting period to match the remaining activity time.
+
 class Program {
     static void Main(string[] args) {
         string _choice = "";
@@ -11,7 +16,7 @@ class Program {
             Console.WriteLine("    2. Start Reflecting Activity");
             Console.WriteLine("    3. Start Listing Activity");
             Console.WriteLine("    4. Quit");
-            Console.Write("\n Select a choice from the menu: ");
+            Console.Write("\nSelect a choice from the menu: ");
             _choice = Console.ReadLine();
 
             if (_choice == "1") {
@@ -30,10 +35,12 @@ class Program {
                 break; 
             }
             else {
-                Console.WriteLine("Incorrect choice, please try again.");
+                Console.Write("Incorrect choice, press 'Enter' to continue.");
+                Console.ReadLine();
             }
         }
-        Console.WriteLine("Exiting the program");
+        Console.Clear();
+        Console.WriteLine("Exiting the program.");
         Environment.Exit(0);
     }
 }

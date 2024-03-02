@@ -1,6 +1,3 @@
-
-using System.Runtime.CompilerServices;
-
 class BreathingActivity : Activity {
 
     public BreathingActivity() : base("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.") {
@@ -9,13 +6,11 @@ class BreathingActivity : Activity {
     public void RunBreathing() {
         ActivityStart();
         int _activityTime = GetDuration();
-        SpinnyAnimation(300);
         BreathingInOut(_activityTime);
         ActivityEnd();
     }
-    public void BreathingInOut(int activityTime) {
-        int _remainingTime = activityTime;
-        Console.WriteLine();
+    public void BreathingInOut(int time) {
+        int _remainingTime = time;
         while (_remainingTime > 0) {
             Console.Write("Breathe in... ");
             if (_remainingTime >= 10) {

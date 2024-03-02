@@ -1,14 +1,14 @@
-using System.Reflection.Metadata.Ecma335;
-
 class Activity {
 private string _activityName;
 private string _description;
 private int _duration;
+private bool _validDuration = false;
 
 private List <string> _animation = new List<string>();
     public Activity(string name, string description) {
         _activityName = name;
         _description = description;
+
         _animation = new List<string>() {
             "|", "/", "—", "\\", "|", "/", "—", "\\"
         };
@@ -20,10 +20,19 @@ private List <string> _animation = new List<string>();
 
     }
     public int GetDuration() {
-        Console.Write("\nHow long, in seconds, would you like for your session? ");
-        _duration = int.Parse(Console.ReadLine());
+        while (_validDuration != true) {
+            Console.Write("\nHow long, in seconds, would you like for your session? ");
+            if (int.TryParse(Console.ReadLine(), out _duration)) {
+                _validDuration = true;
+            }
+            else {
+                Console.WriteLine("Invalid input, please enter a number.");
+            }
+        }   
         Console.Clear();
         Console.WriteLine("Get Ready...");
+        SpinnyAnimation(300);
+        Console.WriteLine();
         return _duration;
     }
     public void ActivityEnd() {
@@ -44,7 +53,7 @@ private List <string> _animation = new List<string>();
 
     public void SpinnyAnimation(int wait) {
         foreach (string s in _animation) {
-            Console.Write("\b \b" + s);
+            Console.Write(s);
             Thread.Sleep(wait);
             Console.Write("\b \b");
         }

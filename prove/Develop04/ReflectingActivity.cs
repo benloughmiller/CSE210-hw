@@ -1,5 +1,4 @@
 class ReflectingActivity : Activity {
-    private string _prompt;
     private List<string> _reflectPrompts = new List<string>();
     private List<string> _questions = new List<string>();
 
@@ -24,19 +23,50 @@ class ReflectingActivity : Activity {
     }
     public void RunReflecting() {
         ActivityStart();
+        int _activityTime = GetDuration();
+
+        Console.WriteLine("Consider the following prompt:\n");
         GetReflectingPrompt();
+        Console.WriteLine("\nWhen you have something in mind, press 'Enter' to continue.");
+        Console.ReadLine();
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        Console.Write("You may begin in: ");
+        CountdownTimer(5);
+        Console.Clear();
+        DisplayQuestions(_activityTime);
         ActivityEnd();
     }
     public void GetReflectingPrompt() {
         Random _random = new Random();
         int _randomPrompt = _random.Next(_reflectPrompts.Count);
-        _prompt = _reflectPrompts[_randomPrompt];
-        Console.WriteLine(_prompt);
+        string _displayPrompt = "---- " + _reflectPrompts[_randomPrompt] + " ----";
+        Console.WriteLine(_displayPrompt);
     }
-    public void DisplayPrompt(string prompt) {
 
+    public string GetQuestion() {
+        Random _random = new Random();
+        int _randomQuestion = _random.Next(_questions.Count);
+        string _displayQuestion = _questions[_randomQuestion];
+        _questions.RemoveAt(_randomQuestion);
+        return _displayQuestion;
     }
-    public void DisplayQuestion() {
-        
+    public void DisplayQuestions(int time) {
+        int _remainingTime = time; 
+        while (_remainingTime > 0) {
+
+            if (_remainingTime >= 10) {
+               Console.Write($"> {GetQuestion()} ");
+                SpinnyAnimation(1000);
+                Console.WriteLine();
+                _remainingTime -= 10;
+            }
+            else {
+                Console.Write($"> {GetQuestion()} ");
+                SpinnyAnimation(100 * _remainingTime);
+                Console.WriteLine();
+                _remainingTime = 0;  
+            }
+        }
+        Console.WriteLine();
     }
 }
