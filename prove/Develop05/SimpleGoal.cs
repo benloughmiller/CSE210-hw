@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 class SimpleGoal : Goal {
     private int _basePoints;
     private bool _complete;
-    public SimpleGoal(string name, string description, int basePoints) : base(name, description) {
+    public SimpleGoal(string name, string description, int basePoints) : base("Simple", name, description, basePoints) {
         _basePoints = basePoints;
     }
     public override bool IsComplete() {

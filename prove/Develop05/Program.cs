@@ -2,7 +2,9 @@ using System;
 
 class Program {
     static void Main(string[] args) {
+        GoalManager goalManager = new GoalManager();
         string _choice = "";
+
         while (_choice != "6") {
             Console.Clear();
             Console.WriteLine("Menu Options:");
@@ -16,38 +18,19 @@ class Program {
             _choice = Console.ReadLine();
 
             if (_choice == "1") {
-                string _goalChoice = "";
-                while (_goalChoice != "4") {
-                    Console.WriteLine("The types of Goals are:");
-                    Console.WriteLine("    1. Simple Goal");
-                    Console.WriteLine("    2. Eternal Goal");
-                    Console.WriteLine("    3. Checklist Goal");
-                    Console.WriteLine("    4. Quit");
-                    Console.Write("\nWhich type of goal would you like to create? ");
-                    _goalChoice = Console.ReadLine(); 
-
-                    if (_choice == "1") {
-                    }
-                    else if (_choice == "2") {
-                    }
-                    else if (_choice == "3") {   
-                    }
-                    else if (_choice == "4") {
-                        break;   
-                    }
-                    else {
-                        Console.Write("Incorrect choice, press 'Enter' to continue.");
-                        Console.ReadLine();
-                    }
-                }
+                goalManager.NewGoal();
             }
             else if (_choice == "2") {
+                goalManager.ViewGoals();
             }
             else if (_choice == "3") {   
+                goalManager.WriteFile();  
             }
-            else if (_choice == "4") {   
+            else if (_choice == "4") { 
+                goalManager.LoadFile();
             }
             else if (_choice == "5") {   
+            //Call a class constructor to allow the user to accomplish a goal.
             }
             else if (_choice == "6") {
                 break; 
@@ -60,5 +43,5 @@ class Program {
         Console.Clear();
         Console.WriteLine("Exiting the program.");
         Environment.Exit(0);
-    }    }
+    }    
 }
