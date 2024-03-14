@@ -1,19 +1,26 @@
-class ChecklistGoal {
+class ChecklistGoal : Goal{
     private int _basePoints;
-    private int _timesComplete;
+    public int _timesComplete;
     private int _bonusPoints;
-    private int _goalValue;
-    private bool _complete;
-    public ChecklistGoal(string name, string description, int basePoints, int bonusPoints, int bonusCompletions) : base("Checklist", name, description, basePoints, bonusPoints, bonusCompletions) {
-
+    public int _goalValue;
+    public ChecklistGoal(string name, string description, int goalPoints, int bonusPoints, int bonusCompletions) : base("Checklist", name, description, goalPoints, bonusPoints, bonusCompletions) {
+        _basePoints = goalPoints;
+        _bonusPoints = bonusPoints;
+        _goalValue = bonusCompletions;
+        _timesComplete = 0;
     }
-    public bool IsComplete() {
-        return _complete;
+    public override bool IsComplete() {
+        return _timesComplete == _goalValue;
     }
-    public void RecordEvent() {
-
+    public override void RecordEvent() {
+        _timesComplete += 1;
+        if (_timesComplete == _goalValue) {
+            AddPoints(_basePoints + _bonusPoints);
+            SetComplete(true);
+        }
+        else {
+            AddPoints(_basePoints + _bonusPoints);
+        }
+    
     }
-
-
-
 }

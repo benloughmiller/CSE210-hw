@@ -1,17 +1,13 @@
-using System.Collections.Concurrent;
-using System.Reflection.Metadata.Ecma335;
-
 class SimpleGoal : Goal {
-    private int _basePoints;
-    private bool _complete;
-    public SimpleGoal(string name, string description, int basePoints) : base("Simple", name, description, basePoints) {
-        _basePoints = basePoints;
+    private int _simplePoints;
+    public SimpleGoal(string name, string description, int goalPoints) : base("Simple", name, description, goalPoints) {
+        _simplePoints = goalPoints;
     }
     public override bool IsComplete() {
         return _complete;
     }
     public override void RecordEvent() {
-        AddPoints(_basePoints);
+        AddPoints(_simplePoints);
         SetComplete(true);
     }
     
