@@ -1,12 +1,12 @@
 class EternalGoal : Goal {
-    private int _eternalPoints;
-    public EternalGoal(string name, string description, int goalPoints) : base("Eternal", name, description, goalPoints) {
-        _eternalPoints = goalPoints;
+    private int _basePoints;
+    public EternalGoal(string name, string description, int basePoints, bool complete) : base("Eternal", name, description, basePoints, complete) {
+        _basePoints = basePoints;
     }
     public override bool IsComplete() {
         return _complete;
     }
-    public override void RecordEvent() {
-        AddPoints(_eternalPoints);
+    public override int RecordEvent() {
+        return AddPoints(_basePoints);
     }
 }

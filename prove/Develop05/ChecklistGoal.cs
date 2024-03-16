@@ -1,26 +1,34 @@
+using System.Formats.Asn1;
+
 class ChecklistGoal : Goal{
     private int _basePoints;
-    public int _timesComplete;
     private int _bonusPoints;
-    public int _goalValue;
-    public ChecklistGoal(string name, string description, int goalPoints, int bonusPoints, int bonusCompletions) : base("Checklist", name, description, goalPoints, bonusPoints, bonusCompletions) {
-        _basePoints = goalPoints;
+    private int _timesComplete;
+    private int _goalValue;
+    public ChecklistGoal(string name, string description, int basePoints, bool complete, int bonusPoints, int bonusCompletions, int timesComplete) : base("Checklist", name, description, basePoints, complete, bonusPoints, bonusCompletions) {
+        _basePoints = basePoints;
         _bonusPoints = bonusPoints;
         _goalValue = bonusCompletions;
-        _timesComplete = 0;
+        _timesComplete = timesComplete;
     }
     public override bool IsComplete() {
         return _timesComplete == _goalValue;
     }
-    public override void RecordEvent() {
-        _timesComplete += 1;
-        if (_timesComplete == _goalValue) {
-            AddPoints(_basePoints + _bonusPoints);
-            SetComplete(true);
+    public int GetTimesComplete() {
+        return _timesComplete;
+    }
+    public int GetGoalValue() {
+        return _goalValue;
+    }
+    public override int RecordEvent() {
+        if (_timesComplete < _goalValue - 1) {
+            _timesComplete += 1;
+            return AddPoints(_basePoints);
         }
         else {
-            AddPoints(_basePoints + _bonusPoints);
+            _timesComplete += 1;
+            SetComplete(true);
+            return AddPoints(_basePoints + _bonusPoints);   
         }
-    
     }
 }

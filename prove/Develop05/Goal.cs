@@ -1,37 +1,57 @@
-abstract class Goal {
-    protected string _goalType;
-    public string _name;
-    public string _description;
-    public int _points;
-    protected bool _complete;
-    public int _bonusPoints;
-    public int _bonusCompletions;
+using System.Runtime.CompilerServices;
 
-    public Goal(string goalType, string name, string description, int points) {
+abstract class Goal {
+    private string _goalType;
+    private string _name;
+    private string _description;
+    private int _points;
+    protected bool _complete;
+    private int _bonusPoints;
+    private int _bonusGoal;
+
+    public Goal(string goalType, string name, string description, int points, bool complete) {
         _goalType = goalType;
         _name = name;
         _description = description;
         _points = points;
-        _complete = false;
+        _complete = complete;
+
     }
-    public Goal(string goalType, string name, string description, int points, int bonusPoints, int bonusCompletions) {
+    public Goal(string goalType, string name, string description, int points, bool complete, int bonusPoints, int bonusGoal) {
         _goalType = goalType;
         _name = name;
         _description = description;
         _points = points;
         _complete = false;
         _bonusPoints = bonusPoints;
-        _bonusCompletions = bonusCompletions;
+        _bonusGoal = bonusGoal;
+        _complete = complete;
+    }
+    public string GetName() {
+        return _name;
+    }
+    public string GetDescription() {
+        return _description;
     }
     public int GetPoints() {
         return _points;
     }
-    public void AddPoints(int points) {
-        _points += points;
+    public int GetBonusPoints() {
+        return _bonusPoints;
     }
-    protected void SetComplete(bool value) {
-        _complete = value;
+    public int GetBonusGoal() {
+        return _bonusGoal;
     }
-    public abstract void RecordEvent();
+    public int AddPoints(int points) {
+        return points;
+    }
+
+    public bool GetComplete() {
+        return _complete;
+    }
+    protected void SetComplete(bool complete) {
+        _complete = complete;
+    }
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
 }

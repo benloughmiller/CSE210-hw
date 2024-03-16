@@ -1,14 +1,14 @@
 class SimpleGoal : Goal {
-    private int _simplePoints;
-    public SimpleGoal(string name, string description, int goalPoints) : base("Simple", name, description, goalPoints) {
-        _simplePoints = goalPoints;
+    private int _basePoints;
+    public SimpleGoal(string name, string description, int basePoints, bool complete) : base("Simple", name, description, basePoints, complete) {
+        _basePoints = basePoints;
     }
     public override bool IsComplete() {
         return _complete;
     }
-    public override void RecordEvent() {
-        AddPoints(_simplePoints);
+    public override int RecordEvent() {
         SetComplete(true);
+        return AddPoints(_basePoints);
     }
-    
 }
+    
