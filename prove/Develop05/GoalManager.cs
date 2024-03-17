@@ -15,6 +15,10 @@ class GoalManager {
         Console.WriteLine("    3. Checklist Goal");
         Console.Write("Which type of goal would you like to create? ");
         string _goalChoice = Console.ReadLine();
+        while (_goalChoice != "1" && _goalChoice != "2" && _goalChoice != "3") {
+            Console.Write("Incorrect Choice. Please enter a valid entry.");
+            _goalChoice = Console.ReadLine();
+        }
         Console.Write("What is the name of your goal?");
         string _name = Console.ReadLine();
         Console.Write("What is a short description of it?");
@@ -80,6 +84,7 @@ public void LoadFile() {
     Console.WriteLine("Please enter the name of the file you would like to load");
     string _fileName = Console.ReadLine() + ".txt";
     _goalList.Clear();
+    _totalPoints = int.Parse(System.IO.File.ReadLines(_fileName).First());
     string[] lines = System.IO.File.ReadAllLines(_fileName);
     foreach (string line in lines) {
         string[] parts = line.Split(':');

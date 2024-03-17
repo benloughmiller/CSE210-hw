@@ -45,10 +45,6 @@ abstract class Goal {
     public int AddPoints(int points) {
         return points;
     }
-
-    public bool GetComplete() {
-        return _complete;
-    }
     protected void SetComplete(bool complete) {
         _complete = complete;
     }
