@@ -1,5 +1,5 @@
 using System;
-
+//Stretch: Added bad habit "goal" class
 class Program {
     static void Main(string[] args) {
         GoalManager goalManager = new GoalManager();
@@ -37,12 +37,12 @@ class Program {
             }
             else if (_choice == "4") { 
                 goalManager.LoadFile();
-                Console.WriteLine("File loaded. Press 'enter' to return to the menu.");
+                Console.WriteLine("Press 'enter' to return to the menu.");
                 Console.ReadLine();
             }
             else if (_choice == "5") {   
                 goalManager.GoalProgress();
-                Console.WriteLine("Press 'enter' to return to the menu.");
+                Console.Write("Press 'enter' to return to the menu.");
                 Console.ReadLine();            
             }
             else if (_choice == "6") {
