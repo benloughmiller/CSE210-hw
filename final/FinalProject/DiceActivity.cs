@@ -1,0 +1,4 @@
+class DiceActivity {
+    public DiceActivity() {
+    }
+}

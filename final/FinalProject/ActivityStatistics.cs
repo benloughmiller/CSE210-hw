@@ -1,0 +1,4 @@
+class ActivityStatistics {
+    public ActivityStatistics() {
+    }
+}

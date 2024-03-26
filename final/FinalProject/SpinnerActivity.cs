@@ -1,0 +1,4 @@
+class SpinnerActivity {
+    public SpinnerActivity() {
+    }
+}
