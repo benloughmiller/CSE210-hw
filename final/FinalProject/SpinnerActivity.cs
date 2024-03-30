@@ -1,23 +1,13 @@
 class SpinnerActivity : Activity{
     
-    private List <string> _animation = new List<string>();
-    public SpinnerActivity(int repetition) : base("Spinner Wheel", "This activity will spin a wheel with 4 possible results."){
-        _animation = new List<string>() {
-            "—", "\\", "|", "/", "—", "\\", "|", "/" 
-        };
-        RunActivity(repetition);
+
+    public SpinnerActivity(int repetition, int maximum) : base("Spinner Wheel", "This activity will spin a wheel with 4 possible results."){
+        RunActivity(repetition, maximum);
     }
-    private void SpinnyAnimation(int wait) {
-        foreach (string s in _animation) {
-            Console.Write(s);
-            Thread.Sleep(wait);
-            Console.Write("\b \b");
-        }
-    }
-    public override void RunActivity(int repetition) {
-        int _repetition = repetition;
-        if (_repetition == 1) {
-            ActivityStart();
-        }
+
+
+    protected override void CalcActivity() {
+        SpinnyAnimation(200);
+        int _result = GetRandomNumber(4);
     }
 }

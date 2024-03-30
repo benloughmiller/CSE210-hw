@@ -4,32 +4,54 @@ abstract class Activity {
     private string _name;
     private string _description;
     private int _result;
-    private int _maximum;
+    private List <string> _animation = new List<string>();
     public Activity(string name, string description) {
         _name = name;
         _description = description;
-
+        _animation = new List<string>() {
+            "—", "\\", "|", "/", "—", "\\", "|", "/" 
+        };
     }
     protected void ActivityStart() {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name} Activity!");
-        Console.WriteLine(_description);
+        Console.WriteLine($"{_description}\n");
+        Console.Write("Press 'Enter' to begin the activity: ");
+        Console.ReadLine();
+        Console.WriteLine();
     }
     protected void ActivityEnd() {
+        Console.Write("Finished the Activity. Press 'Enter' to return to the menu: ");
+        Console.ReadLine();
+    }
+    protected void SpinnyAnimation(int wait) {
+        Console.CursorVisible = false;
+        foreach (string s in _animation) {
+            Console.Write(s);
+            Thread.Sleep(wait);
+            Console.Write("\b \b");
+        }
+        Console.CursorVisible = true;
+    }
+    protected void RunActivity(int repetition, int maximum) {
+        int _repetition = repetition;
+        if (_repetition == 1) {
+            ActivityStart();
+        }
+        CalcActivity();
+        if (repetition == maximum) {
+            ActivityEnd();
+        }
     }
     protected int GetRandomNumber(int maximum) {
-        Random _random = new Random();
-        _maximum = maximum;
-        int _randomNumber = _random.Next(1, _maximum + 1);
-        _result = _randomNumber;
+        Random random = new Random();
+        int randomNumber = random.Next(1, maximum + 1);
+        _result = randomNumber;
         return _result;
     }
     public int GetResult(){
         return _result;
     }
-    public int GetMaximum() {
-        return _maximum;
-    }
-    public abstract void RunActivity(int repetition);
+    protected abstract void CalcActivity();
     
 }
