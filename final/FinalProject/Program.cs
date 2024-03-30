@@ -32,7 +32,10 @@ class Program
                     Console.Write("Incorrect Choice. Please enter a valid entry: ");
                     _activityChoice = Console.ReadLine();
                 }
-                activityManager.NewActivity(int.Parse(_activityChoice));
+                Console.Write("\nHow many times would you like to run the activity?");
+                int.TryParse(Console.ReadLine(), out int _runAmount);
+                
+                activityManager.NewActivity(int.Parse(_activityChoice), _runAmount);
             }
             else if (_choice == "2") {
 

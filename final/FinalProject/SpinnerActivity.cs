@@ -16,7 +16,7 @@ class SpinnerActivity : Activity{
     }
     public override void RunActivity(int repetition) {
         int _repetition = repetition;
-        if (_repetition == 0) {
+        if (_repetition == 1) {
             ActivityStart();
         }
     }

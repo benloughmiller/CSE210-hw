@@ -6,7 +6,7 @@ class CardActivity : Activity{
     }
     public override void RunActivity(int repetition) {
         int _repetition = repetition;
-        if (_repetition == 0) {
+        if (_repetition == 1) {
             ActivityStart();
         }
         int _randomSuitInt = GetRandomNumber(_suits.Count) - 1;
@@ -14,5 +14,6 @@ class CardActivity : Activity{
         string _randomSuit = _suits[_randomSuitInt];
         string _randomValue = _values[_randomvalueInt];
         Console.WriteLine($"You picked the {_randomValue} of {_randomSuit}.");
+        Console.ReadLine();
     }
 }
