@@ -12,17 +12,22 @@ abstract class Activity {
             "—", "\\", "|", "/", "—", "\\", "|", "/" 
         };
     }
-    protected void ActivityStart() {
-        Console.Clear();
-        Console.WriteLine($"Welcome to the {_name} Activity!");
-        Console.WriteLine($"{_description}\n");
-        Console.Write("Press 'Enter' to begin the activity: ");
-        Console.ReadLine();
-        Console.WriteLine();
-    }
-    protected void ActivityEnd() {
-        Console.Write("Finished the Activity. Press 'Enter' to return to the menu: ");
-        Console.ReadLine();
+    protected void RunActivity(int repetition, int maxRepitition) {
+        int _repetition = repetition;
+        if (_repetition == 1) {
+            Console.Clear();
+            Console.WriteLine($"Welcome to the {_name} Activity!");
+            Console.WriteLine($"{_description}\n");
+            Console.Write("Press 'Enter' to begin the activity: ");
+            Console.ReadLine();
+            Console.WriteLine();
+        }
+        CalcActivity();
+
+        if (repetition == maxRepitition) {
+            Console.Write("Finished the Activity. Press 'Enter' to return to the menu: ");
+            Console.ReadLine();
+        }
     }
     protected void SpinnyAnimation(int wait) {
         Console.CursorVisible = false;
@@ -32,16 +37,6 @@ abstract class Activity {
             Console.Write("\b \b");
         }
         Console.CursorVisible = true;
-    }
-    protected void RunActivity(int repetition, int maximum) {
-        int _repetition = repetition;
-        if (_repetition == 1) {
-            ActivityStart();
-        }
-        CalcActivity();
-        if (repetition == maximum) {
-            ActivityEnd();
-        }
     }
     protected int GetRandomNumber(int maximum) {
         Random random = new Random();

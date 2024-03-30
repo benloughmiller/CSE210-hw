@@ -23,7 +23,7 @@ class ActivityManager {
     public void DisplayList() {
         //To Be Added
     }
-    public List<Activity> PassList() {
+    public List<Activity> PassActivityList() {
         return _activityList;
     }
 }
