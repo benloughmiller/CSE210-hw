@@ -3,7 +3,8 @@ using System.Reflection;
 abstract class Activity {
     private string _name;
     private string _description;
-    private int _result;
+    protected string _result;
+    protected int _numericalResult;
     private List <string> _animation = new List<string>();
     public Activity(string name, string description) {
         _name = name;
@@ -41,11 +42,17 @@ abstract class Activity {
     protected int GetRandomNumber(int maximum) {
         Random random = new Random();
         int randomNumber = random.Next(1, maximum + 1);
-        _result = randomNumber;
+        _numericalResult = randomNumber;
+        return randomNumber;
+    }
+    public string GetName(){
+        return _name;
+    }
+    public string GetResult(){
         return _result;
     }
-    public int GetResult(){
-        return _result;
+    public int GetNumericalResult(){
+        return _numericalResult;
     }
     protected abstract void CalcActivity();
     

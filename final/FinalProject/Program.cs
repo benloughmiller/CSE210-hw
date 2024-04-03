@@ -18,29 +18,14 @@ class Program
             choice = Console.ReadLine();
 
             if (choice == "1") {
-                Console.Clear();
-                Console.WriteLine("Activity Options:");
-                Console.WriteLine("    1. Coin Flip");
-                Console.WriteLine("    2. Spinner Wheel");
-                Console.WriteLine("    3. Dice Roll");
-                Console.WriteLine("    4. Draw Card");
-                Console.Write("\nWhich activity would you like to run: ");
-                string activityChoice = Console.ReadLine();
-
-                while (activityChoice != "1" && activityChoice != "2" && activityChoice != "3" && activityChoice != "4") {
-                    Console.Write("Incorrect Choice. Please enter a valid entry: ");
-                    activityChoice = Console.ReadLine();
-                }
-                Console.Write("\nHow many times would you like to run the activity? ");
-                int.TryParse(Console.ReadLine(), out int runAmount);
-                
-                activityManager.NewActivity(int.Parse(activityChoice), runAmount);
+                activityManager.ManagerMenu();
             }
             else if (choice == "2") {
-
+                activityManager.DisplayList();
             }
             else if (choice == "3") {
-    
+                ActivityStatistics activityStatistics = new ActivityStatistics(activityManager.GetActivityList());
+                activityStatistics.StatisticsMenu();
             }
             else if (choice == "4") {
                 break; 
